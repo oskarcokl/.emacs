@@ -1,0 +1,4 @@
+/Users/iprom/.emacs.d/elpa/vterm-20250929.1514/build/CMakeFiles/vterm-module.dir
+/Users/iprom/.emacs.d/elpa/vterm-20250929.1514/build/CMakeFiles/run.dir
+/Users/iprom/.emacs.d/elpa/vterm-20250929.1514/build/CMakeFiles/edit_cache.dir
+/Users/iprom/.emacs.d/elpa/vterm-20250929.1514/build/CMakeFiles/rebuild_cache.dir
