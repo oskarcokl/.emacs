@@ -3,6 +3,14 @@
 ;; Progress: Evil + Doom Theme + Modern Completion + Projectile
 ;; ===============================================================
 
+
+;; -----------------
+;; Environemnt setup
+;; -----------------
+;;
+;; NOTE(oskar): Add typescript ls to exec path, I'm pretty sure this is a mac only issue.
+(add-to-list 'exec-path "/Users/iprom/.nvm/versions/node/v22.13.0/bin/")
+
 ;; -----------------------------
 ;; Basic package initialization
 ;; -----------------------------
@@ -73,7 +81,11 @@
      "720838034f1dd3b3da66f6bd4d053ee67c93a747b219d1c546c41c4e425daf93"
      "7e98dc1aa7f5db0557691da690c38d55e83ddd33c6d268205d66e430d57fb982"
      default))
- '(indent-tabs-mode nil))
+ '(indent-tabs-mode nil)
+ '(package-selected-packages
+   '(all-the-icons apheleia consult-projectile diff-hl doom-themes
+                   evil-collection marginalia modus-themes orderless
+                   vertico vterm-toggle)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -88,7 +100,9 @@
 
 
 ;; Set default font "height"
-(set-face-attribute 'default nil :height 180)
+(set-face-attribute 'default nil :height 180 :family "Fira Code")
+
+(diff-hl-mode)
 
 ;; List of tree sitter grammers
 (setq treesit-language-source-alist
@@ -97,6 +111,14 @@
     (css-in-js "https://github.com/orzechowskid/tree-sitter-css-in-js" "lates" "src")))
 
 
-(add-to-list 'auto-mode-alist '("'\\.tsx\\'" . tsx-ts-mode))
+;; Automatically load tsx-ts-mode when entering a .tsx file.
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+(setq typescript-ts-mode-indent-offset 4)
+;; Start eglot automatically when tsx-ts-mode is called
+(add-hook 'tsx-ts-mode-hook 'eglot-ensure)
 
 (add-to-list 'custom-theme-load-path '"/Users/iprom/.emacs.d/themes/")
+
+;; Hide tool-bar
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
